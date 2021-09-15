@@ -42,7 +42,7 @@ sign_in.send_keys_ny_id(driver,'lastName','Abbas')
 driver.find_element_by_name("phoneNumber").send_keys(23123234)
 sign_in.send_keys_ny_id(driver,'password','HELLOworld12@')
 sign_in.send_keys_ny_id(driver,'confirmPassword','HELLOworld12@')
-driver.find_element_by_name("termsAndConditions").click()
+driver.find_element_by_id("termsAndConditions").click()
 pdb.set_trace()
 # print('i am working')
 # pyautogui.press('tab')
@@ -53,7 +53,7 @@ pdb.set_trace()
 # s = select(driver.find_element_by_name ("country"))
 # s.select_by_visible_text ('Pakistan')
 # pyautogui.press('tab')
-driver.find_element_by_name('termsAndConditions').click()
+# driver.find_element_by_name('termsAndConditions').click()
 
 
 
