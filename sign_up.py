@@ -4,6 +4,8 @@ from select import select
 import pyautogui
 
 import keyboard
+from selenium.webdriver.support.select import Select
+
 import init_chrome
 import sign_in
 import requests
@@ -33,24 +35,25 @@ time.sleep(20)
 # keyboard.press('enter')
 # print(ver_code)
 sign_in.send_keys_ny_id(driver,'firstName','murtajiz')
-keyboard.press('tab')
 sign_in.send_keys_ny_id(driver,'lastName','Abbas')
-pyautogui.press('tab')
-a = select(driver.find_element_by_name("countryCode"))
-a.selct
-pyautogui.press('enter')
+select = Select(driver.find_element_by_id('countryCode'))
+select.select_by_value('5')
+# a = select(driver.find_element_by_name("countryCode"))
+# a.selct
+# pyautogui.press('enter')
 sign_in.send_keys_ny_id(driver,'phoneNumber','3005789980')
 sign_in.send_keys_ny_id(driver,'password','HELLOworld12@')
 sign_in.send_keys_ny_id(driver,'confirmPassword','HELLOworld12@')
-print('i am working')
-pyautogui.press('tab')
-print('still working')
+pdb.set_trace()
+# print('i am working')
+# pyautogui.press('tab')
+# print('still working')
 # sign_in.click_by_xpath(driver,'/html/body/app-root/app-personal-info/div/div/div[2]/div/div/div/form/div[6]/mat-form-field')
 # pyautogui.press('down', press=6)
 # pyautogui.press('enter')
-s = select(driver.find_element_by_name ("country"))
-s.select_by_visible_text ('Pakistan')
-pyautogui.press('tab')
+# s = select(driver.find_element_by_name ("country"))
+# s.select_by_visible_text ('Pakistan')
+# pyautogui.press('tab')
 driver.find_element_by_name('termsAndConditions').click()
 
 
