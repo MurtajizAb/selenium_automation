@@ -49,7 +49,8 @@ def login(email,password):
     driver=globals.send_keys_by_name(driver,'email',email)
     driver = globals.send_keys_by_name(driver, 'password', password)
     driver=globals.click_by_xpath(driver,'//button[@name="continue"]')
-    driver=globals.click_by_xpath(driver,'//button[@size="normal"]')
+
+
     return driver
 
 

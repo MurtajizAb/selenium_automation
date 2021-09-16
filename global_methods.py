@@ -60,9 +60,10 @@ def click_by_name(driver, name):
         return driver
 
 
+
 def click_by_xpath(driver, xpath):
     try:
-        time.sleep(5)
+        time.sleep(1)
         element = WebDriverWait(driver, wait).until(
             EC.presence_of_element_located((By.XPATH, xpath))
         )
@@ -127,6 +128,20 @@ def select_dropdown_by_visibletext(driver, id, visible_text):
         print("Something went wrong with the" + " " + str(id))
         return driver
 
+def select_dropdown_by_visibletext_xpath(driver, xpath, visible_text):
+    try:
+        element = WebDriverWait(driver, wait).until(
+            EC.presence_of_element_located((By.XPATH, xpath))
+        )
+        # select = Select(driver.find_element_by_xpath(xpath))
+        element.select_by_visible_text(visible_text)
+        print_success(True)
+        return driver
+    except Exception as e:
+        print(get_linenumber())
+        print_success(False, e)
+        print("Something went wrong with the" + " " + str(id))
+        return driver
 
 def select_dropdown_by_index(driver, id, index):
     try:
@@ -142,3 +157,19 @@ def select_dropdown_by_index(driver, id, index):
         print_success(False, e)
         print("Something went wrong with the" + " " + str(id))
         return driverddd
+
+
+def send_keys_by_xpath(driver, xpath,text):
+    try:
+        time.sleep(1)
+        element = WebDriverWait(driver, wait).until(
+            EC.presence_of_element_located((By.XPATH, xpath))
+        )
+        driver.find_element_by_xpath(xpath).send_keys(text)
+        print_success(True)
+        return driver
+    except Exception as e:
+        print(get_linenumber())
+        print_success(False, e)
+        print("Something went wrong with the" + " " + str(id))
+        return driver

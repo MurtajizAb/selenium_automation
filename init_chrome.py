@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from sys import platform
+from selenium.webdriver.common.keys import Keys
 import pdb
 #*def max_window():
 
