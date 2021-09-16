@@ -1,5 +1,8 @@
 from sys import platform
-
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from sys import platform
 import pdb
@@ -21,7 +24,6 @@ def start():
         driver = webdriver.Chrome(executable_path='drivers/linux/chromedriver')
     else:
         driver = webdriver.Chrome(executable_path='chromedriver.exe')
-    driver.implicitly_wait(40)
     driver.maximize_window()
 
     return driver
