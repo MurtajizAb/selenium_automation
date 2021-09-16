@@ -49,6 +49,7 @@ def login(email,password):
     driver = send_keys_ny_name(driver, 'email', email)
     driver = send_keys_ny_name(driver, 'password', password)
     driver.find_element_by_xpath('//button[@name="continue"]').click()
+    driver.find_element_by_xpath('//button[@size="normal"]').click()
     return driver
 
 
