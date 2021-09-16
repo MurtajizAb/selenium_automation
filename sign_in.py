@@ -1,6 +1,7 @@
 import keyboard
-
+import pyautogui
 import init_chrome
+import time
 url= "http://stagingapp.prowireonline.com/home"
 
 def click_by_xpath(driver,x_path):
@@ -38,16 +39,19 @@ def send_keys_by_link_text(driver,link_text,text):
     driver.find_element_by_link_text(link_text).send_keys(text)
     return driver
 
-if __name__ == '__main__':
-    driver = init_chrome.start()
+
+
+def login(email,password):
+    driver=init_chrome.start()
     driver.get(url)
+    driver = click_by_xpath(driver, '//*[@id="navbarSupportedContent"]/form/a[1]')
+    driver = send_keys_ny_name(driver, 'email', email)
+    driver = send_keys_ny_name(driver, 'password', password)
+    print('i am here')
+    pyautogui.press('tab')
+    pyautogui.press("enter")
+    return driver
 
 
-#driver=click_by_xpath(driver,'//*[@id="navbarSupportedContent"]/form/a[1]')
-#driver=send_keys_ny_id(driver,'email','absdf')
-#driver=send_keys_ny_name(driver,'email','nnnnnn@gmail.com')
-#driver= send_keys_ny_name(driver,'password','12345678aA@')
-#print('i am here')
-#keyboard.press('tab')
-#keyboard.press("enter")
-# keyboard.press()
+if __name__ == '__main__':
+    login()

@@ -23,6 +23,7 @@ def start():
         driver = webdriver.Chrome(executable_path='chromedriver.exe')
     driver.implicitly_wait(40)
     driver.maximize_window()
+
     return driver
 
 
