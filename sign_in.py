@@ -36,18 +36,34 @@ def click_element_by_css(driver,sele):
 
 def send_keys_by_link_text(driver,link_text,text):
     driver.find_element_by_link_text(link_text).send_keys(text)
-    return driver
 
-if __name__ == '__main__':
+
+
+
+
+def login(email,password):
     driver = init_chrome.start()
     driver.get(url)
+    driver = click_by_xpath(driver, '//*[@id="navbarSupportedContent"]/form/a[1]')
+    # driver = send_keys_ny_id(driver, 'email', 'absdf')
+    driver = send_keys_ny_name(driver, 'email', email)
+    driver = send_keys_ny_name(driver, 'password', password)
+    driver.find_element_by_xpath('//button[@name="continue"]').click()
+    return driver
 
 
-#driver=click_by_xpath(driver,'//*[@id="navbarSupportedContent"]/form/a[1]')
-#driver=send_keys_ny_id(driver,'email','absdf')
-#driver=send_keys_ny_name(driver,'email','nnnnnn@gmail.com')
-#driver= send_keys_ny_name(driver,'password','12345678aA@')
-#print('i am here')
-#keyboard.press('tab')
-#keyboard.press("enter")
+
+
+    # print('i am here')
+    # keyboard.press('tab')
+    # keyboard.press("enter")
+if __name__ == '__main__':
+    email = "arsal.azeem@vizteck.com"
+    password = "Arsal@123#"
+    login(email,password)
+
+
+
+
+
 # keyboard.press()
