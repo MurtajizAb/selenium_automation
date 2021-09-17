@@ -1,6 +1,6 @@
 import time
 from select import select
-
+import global_methods as globals
 import pyautogui
 
 import keyboard
@@ -17,11 +17,24 @@ try:
 
     emailtemp = "xyz12321332@gmail.com"
     driver.get(url)
-    driver.find_element_by_link_text("Sign Up").click()
-    sign_in.send_keys_ny_id(driver, 'email', emailtemp)
+    driver=globals.click_by_xpath(driver,'//button[@name="signup"]')
+    driver=globals.send_keys_by_name(driver, 'email', emailtemp)
+    driver=globals.send_keys_by_xpath(driver,'//input[@name="firstName"]',"My first name")
+    driver = globals.send_keys_by_xpath(driver, '//input[@name="lastName"]', "My first name")
+    driver = globals.send_keys_by_xpath(driver, '// input[ @ name = "phoneNumber"]', 23213213)
+    driver = globals.send_keys_by_xpath(driver, '//input[@name="password"]', "My first name")
+    driver = globals.send_keys_by_xpath(driver, '//input[@name="confirmPassword"]', "My first name")
+    driver = globals.click_by_xpath(driver, '//input[@type="checkbox"]')
+    #
+    #//input[@name="lastName"]
+    # // input[ @ name = "phoneNumber"]
+    #////input[@name="confirmPassword"]
+    #confirmPassword
+    #//input[@type="checkbox"]
     print(emailtemp)
-    pyautogui.press('tab')
-    pyautogui.press('enter')
+    pdb.set_trace()
+    # pyautogui.press('tab')
+    # pyautogui.press('enter')
     time.sleep(1)
     payload = {
         "email": emailtemp
